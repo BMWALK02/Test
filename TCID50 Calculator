@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 
 
-class apples{
+class TCIDcalc{
 	public static void main(String args[]){
 		//Input Panes with prompts
 		String highestdil = JOptionPane.showInputDialog("Enter the log base 10 of the highest dilution giving 100% CPE *Should be NEGATIVE*");
