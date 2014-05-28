@@ -1,0 +1,31 @@
+import javax.swing.JOptionPane;
+
+
+class apples{
+	public static void main(String args[]){
+		//Input Panes with prompts
+		String highestdil = JOptionPane.showInputDialog("Enter the log base 10 of the highest dilution giving 100% CPE *Should be NEGATIVE*");
+		String totalpos = JOptionPane.showInputDialog("Enter the total number of test units showing CPE");
+		String testunits = JOptionPane.showInputDialog("Enter the total number of test units per dilution");
+		String vol = JOptionPane.showInputDialog("What is the total volume in mL in each well?");
+		//Values brought in from input Panes
+		double num1 = Double.parseDouble(highestdil);
+		double num2 = Double.parseDouble(totalpos);
+		double num3 = Double.parseDouble(testunits);
+		double num4 = Double.parseDouble(vol);
+		//Calculations
+		double Part1 = num1 + 0.5;
+		double Part2 = num2 /  num3;
+		double TCID = Part1 - Part2;
+		double AdjTCID = TCID * -1;
+		double ten = 10;
+		double AlmostPFU = Math.pow(ten, AdjTCID);
+		double TCID2 = AlmostPFU / num4;
+		double TCID3 = Math.log10(TCID2);
+		//output	
+		JOptionPane frame = new JOptionPane();
+		JOptionPane.showMessageDialog(frame, "The titer is 10^" + AdjTCID + " TCID50 per unit Vol^-1." + " This is equal to " + TCID3 + " TCID50/mL");
+		
+		
+	}
+}
